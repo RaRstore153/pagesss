@@ -4,190 +4,53 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <title>Literature Report – Welcome</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Georgia", serif;
-}
 
-body {
-  height: 100vh;
-  width: 100vw;
-  background: radial-gradient(circle at center, rgba(30, 20, 10, 1) 0%, rgba(10, 5, 0, 1) 100%);
-  overflow: hidden;
-  color: #f5deb3;
-  position: relative;
-}
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:"Georgia", serif;}
+body {height:100vh;width:100vw;background:radial-gradient(circle at center, rgba(30,20,10,1) 0%, rgba(10,5,0,1) 100%);overflow:hidden;color:#f5deb3;position:relative;}
 
 /* --- FIRELIES --- */
-.firefly {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, rgba(255, 230, 150, .9) 0%, rgba(255, 200, 60, .3) 60%, transparent 100%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.5;
-  transition: opacity 0.5s, transform 1s ease;
-  filter: blur(0.6px);
-}
+.firefly{position:fixed;width:6px;height:6px;background:radial-gradient(circle, rgba(255,230,150,.9)0%, rgba(255,200,60,.3)60%, transparent 100%);border-radius:50%;pointer-events:none;z-index:1;opacity:0.5;transition:opacity 0.5s, transform 1s ease;filter:blur(0.6px);}
 
 /* --- LOADING SCREEN --- */
-#loading-screen {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  transition: opacity 1s ease;
-  z-index: 5;
-}
-.candle-container {
-  position: relative;
-  width: 80px;
-  height: 140px;
-  animation: rotateCandle 2s linear infinite;
-  transform-origin: center;
-}
-@keyframes rotateCandle {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-.candle-flame {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  width: 20px;
-  height: 30px;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, #ffb300 0%, #ff8c00 70%, rgba(255,140,0,0) 80%);
-  border-radius: 50% 50% 35% 35%;
-  animation: flicker .15s infinite;
-  box-shadow: 0 0 30px 10px rgba(255,180,50,.7);
-}
-@keyframes flicker {
-  0% { transform: translateX(-50%) scale(1,1.05) rotate(1deg); opacity:.95; }
-  50% { transform: translateX(-50%) scale(.9,1.1) rotate(-2deg); opacity:1; }
-  100% { transform: translateX(-50%) scale(1,1.05) rotate(1deg); opacity:.9; }
-}
-.candle-wick {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 10px;
-  background: #2b2b2b;
-}
-.candle-body {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 90px;
-  background: linear-gradient(to bottom, #f8f2dc 0%, #e5d1a4 100%);
-  border-radius: 5px;
-  box-shadow: inset 0 -2px 4px rgba(0,0,0,.3);
-}
-.candle-body::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 8px;
-  width: 24px;
-  height: 10px;
-  background: #f8f2dc;
-  border-radius: 50%;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,.2);
-}
-.candle-holder {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 12px;
-  background: radial-gradient(circle at center, #3a2f1c 0%, #1b150d 100%);
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,.8);
-}
-.candle-holder::after {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 38px;
-  width: 4px;
-  height: 30px;
-  background: linear-gradient(to bottom, #5c4a2b, #3b2d1a);
-  border-radius: 2px;
-}
+#loading-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:transparent;transition:opacity 1s ease;z-index:5;}
+.candle-container{position:relative;width:80px;height:140px;animation:rotateCandle 2s linear infinite;transform-origin:center;}
+@keyframes rotateCandle{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
+.candle-flame{position:absolute;top:-25px;left:50%;width:20px;height:30px;transform:translateX(-50%);background:radial-gradient(ellipse at center,#ffb300 0%,#ff8c00 70%,rgba(255,140,0,0) 80%);border-radius:50% 50% 35% 35%;animation:flicker .15s infinite;box-shadow:0 0 30px 10px rgba(255,180,50,.7);}
+@keyframes flicker{0%{transform:translateX(-50%) scale(1,1.05) rotate(1deg);opacity:.95;}50%{transform:translateX(-50%) scale(.9,1.1) rotate(-2deg);opacity:1;}100%{transform:translateX(-50%) scale(1,1.05) rotate(1deg);opacity:.9;}}
+.candle-wick{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:3px;height:10px;background:#2b2b2b;}
+.candle-body{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);width:40px;height:90px;background:linear-gradient(to bottom,#f8f2dc 0%,#e5d1a4 100%);border-radius:5px;box-shadow:inset 0 -2px 4px rgba(0,0,0,.3);}
+.candle-body::after{content:"";position:absolute;top:-10px;left:8px;width:24px;height:10px;background:#f8f2dc;border-radius:50%;box-shadow:inset 0 2px 4px rgba(0,0,0,.2);}
+.candle-holder{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:12px;background:radial-gradient(circle at center,#3a2f1c 0%,#1b150d 100%);border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.8);}
+.candle-holder::after{content:"";position:absolute;top:-25px;left:38px;width:4px;height:30px;background:linear-gradient(to bottom,#5c4a2b,#3b2d1a);border-radius:2px;}
 
 /* --- START SCREEN --- */
-#start-screen {
-  position: fixed;
-  inset: 0;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s ease;
-  z-index: 3;
+#start-screen{position:fixed;inset:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 1s ease;z-index:3;}
+#start-screen.visible{opacity:1;pointer-events:auto;}
+h1{
+    font-size:2.5rem;
+    margin-bottom:30px;
+    text-align:center;
+    color:#f5deb3;
+    text-shadow:0 0 10px rgba(255,230,150,.7);
+    font-family: 'Playfair Display', serif; /* <-- Google font applied */
 }
-#start-screen.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
+button{background:linear-gradient(180deg,#c89f58,#8b5a2b);border:none;color:#fff;padding:12px 30px;font-size:1.2rem;cursor:pointer;border-radius:10px;box-shadow:0 0 15px rgba(255,223,150,.5);transition:all .3s ease;}
+button:hover{background:linear-gradient(180deg,#e3b75f,#a96c31);box-shadow:0 0 25px rgba(255,223,150,.7);transform:scale(1.05);}
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #f5deb3;
-  text-shadow: 0 0 10px rgba(255,230,150,.7);
-}
+/* --- CLOUDS FULLSCREEN --- */
+#clouds{position:fixed;inset:0;pointer-events:none;z-index:4;}
+.cloud{position:absolute;background:rgba(255,255,255,0.4);border-radius:50%;filter:blur(25px);opacity:0;}
 
-button {
-  background: linear-gradient(180deg, #c89f58, #8b5a2b);
-  border: none;
-  color: #fff;
-  padding: 12px 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255,223,150,.5);
-  transition: all .3s ease;
-}
-button:hover {
-  background: linear-gradient(180deg, #e3b75f, #a96c31);
-  box-shadow: 0 0 25px rgba(255,223,150,.7);
-  transform: scale(1.05);
-}
+/* --- ZOOM OVERLAY --- */
+#zoom-overlay{position:fixed;top:50%;left:50%;width:100%;height:100%;background:radial-gradient(circle, rgba(255,255,255,0.2), rgba(255,255,255,0));transform:scale(0);transform-origin:center;z-index:6;transition:transform 2s ease-in-out;}
+#zoom-overlay.active{transform:scale(3);}
 
-/* --- Zoom In Animation for Button --- */
-.zoom-in-animation {
-  transform-origin: center center;
-  animation: zoomButton 0.8s ease forwards;
-}
-
-@keyframes zoomButton {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 1; }
-  100% { transform: scale(1); opacity: 0; }
-}
-
-/* Fade out for loading */
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+/* --- Fade out for loading --- */
+.fade-out{opacity:0;transition:opacity 1s ease;}
 </style>
 </head>
 <body>
@@ -207,16 +70,20 @@ button:hover {
 
 <!-- START SCREEN -->
 <div id="start-screen">
-  <h1>Welcome to My Literature Report</h1>
+  <h1>Welcome to the report of Group 1</h1>
+  <h1>"Independent Writing"</h1>
   <button id="start-btn">Start Reading</button>
 </div>
+
+<!-- CLOUDS & ZOOM -->
+<div id="clouds"></div>
+<div id="zoom-overlay"></div>
 
 <script>
 // --- Fireflies ---
 const fireflies = [];
 const numFireflies = 20;
 const candle = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-
 for (let i = 0; i < numFireflies; i++) {
   const f = document.createElement('div');
   f.classList.add('firefly');
@@ -227,19 +94,15 @@ for (let i = 0; i < numFireflies; i++) {
   fireflies.push(f);
   document.getElementById('firefly-layer').appendChild(f);
 }
-
 function animateFireflies() {
   fireflies.forEach(f => {
     const dx = candle.x - f.x;
     const dy = candle.y - f.y;
     const dist = Math.sqrt(dx*dx + dy*dy);
-
     f.x += (dx / dist) * 0.3 + (Math.random() - 0.5) * 1.5;
     f.y += (dy / dist) * 0.3 + (Math.random() - 0.5) * 1.5;
-
     const glow = Math.max(0.3, 1.5 - dist/300);
     f.style.opacity = glow;
-
     f.style.left = f.x + 'px';
     f.style.top = f.y + 'px';
   });
@@ -261,17 +124,47 @@ window.addEventListener('load', () => {
     }, 1000);
   }, 3000);
 
-  // --- Fixed Start Button Zoom ---
+  // --- Start button click: fullscreen clouds + zoom ---
   startBtn.addEventListener('click', () => {
-    startBtn.classList.add('zoom-in-animation');
+    const cloudsContainer = document.getElementById('clouds');
+    const zoomOverlay = document.getElementById('zoom-overlay');
 
-    setTimeout(() => {
-      window.location.href = '1.html';
-    }, 800);
+    const rect = startBtn.getBoundingClientRect();
+    const centerX = rect.left + rect.width/2;
+    const centerY = rect.top + rect.height/2;
+
+    for (let i = 0; i < 50; i++) {
+      const cloud = document.createElement('div');
+      cloud.classList.add('cloud');
+      const size = Math.random()*400 + 200;
+      cloud.style.width = size + 'px';
+      cloud.style.height = size*0.6 + 'px';
+      cloud.style.left = centerX - size/2 + 'px';
+      cloud.style.top = centerY - size*0.3 + 'px';
+
+      const angle = Math.random()*2*Math.PI;
+      const distance = 600 + Math.random()*200;
+      const endX = Math.cos(angle)*distance;
+      const endY = Math.sin(angle)*distance;
+
+      cloud.animate([ 
+        {transform:`translate(0,0) scale(1)`, opacity:0.6},
+        {transform:`translate(${endX}px,${endY}px) scale(3)`, opacity:0}
+      ],{
+        duration:9000 + Math.random()*700,
+        easing:'ease-out',
+        fill:'forwards'
+      });
+
+      cloudsContainer.appendChild(cloud);
+    }
+
+    zoomOverlay.classList.add('active');
+    startBtn.style.display='none';
+
+    setTimeout(()=>{ window.location.href='1.html'; }, 2600);
   });
 });
 </script>
 </body>
 </html>
-
-
