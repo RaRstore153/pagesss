@@ -94,7 +94,6 @@
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
     }
 
-    /* Candle pierce effect (holder) */
     .candle-holder {
       width: 50px;
       height: 6px;
@@ -127,7 +126,7 @@
     .book {
       position: relative;
       width: 75vw;
-      height: 80vh;
+      height: 90vh;
       perspective: 2000px;
       z-index: 2;
       filter: drop-shadow(0 0 30px rgba(255, 230, 180, 0.4));
@@ -146,21 +145,41 @@
       overflow: hidden;
       border-radius: 10px;
     }
+	/* Headings */
+.page h1 {
+  font-size: 2.2em;
+  margin-top: 10px;      /* small space above */
+  margin-bottom: 20px;   /* space below ≈ 1 inch visually */
+  line-height: 1.2em;    /* tighter line spacing */
+  text-align: center;
+  color: #4b2e05;
+}
 
-    .page h1 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-      color: #4b2e05;
-      text-align: center;
-    }
+/* Paragraphs */
+.page p {
+  font-size: 1.8em;
+  line-height: 1.4em;    /* compact line spacing */
+  margin-top: 5px;       /* small space above */
+  margin-bottom: 20px;   /* space below ≈ 1 inch visually */
+  text-align: justify;
+  color: #3a2d12;
+}
 
-    .page p {
-      font-size: 1.1em;
-      color: #3a2d12;
-      line-height: 1.6em;
-      text-align: justify;
-    }
+/* Lists */
+.page ul {
+  font-size: 1.8em;
+  line-height: 1.4em;    /* compact spacing between lines */
+  margin-top: 5px;
+  margin-left: 1.9em;    /* slight indentation */
+  margin-bottom: 20px;   /* space below ≈ 1 inch visually */
+  color: #3a2d12;
+}
 
+.page li {
+  margin-bottom: 10px;   /* space between list items */
+}
+
+	
     .controls {
       display: flex;
       justify-content: center;
@@ -207,9 +226,55 @@
       50% { transform: translate(100px, -150px) scale(1.2); opacity: 1; }
       100% { transform: translate(200px, -300px) scale(0.8); opacity: 0; }
     }
+
+    /* Thick white smoke clouds with zoom-out */
+    #cloud-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+      animation: cloudZoomOut 4s forwards;
+    }
+
+    #cloud-overlay::before,
+    #cloud-overlay::after {
+      content: '';
+      position: absolute;
+      width: 250%;
+      height: 250%;
+      top: -75%;
+      left: -75%;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 100%);
+      filter: blur(100px);
+      animation: smokeDrift 25s linear infinite;
+    }
+
+    #cloud-overlay::after {
+      background: radial-gradient(circle, rgba(255,255,255,0.85) 0%, transparent 90%);
+      filter: blur(120px);
+      animation-delay: 10s;
+    }
+
+    @keyframes cloudZoomOut {
+      0% { transform: scale(6); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    @keyframes smokeDrift {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(40%, -30%) rotate(15deg); }
+      100% { transform: translate(-30%, -50%) rotate(-15deg); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Realistic smoke clouds -->
+  <div id="cloud-overlay"></div>
 
   <div class="candle-glow"></div>
 
@@ -222,34 +287,116 @@
 
   <div class="book" id="book">
     <div class="page" id="page1">
-      <h1>Title Page</h1>
-      <p>Welcome to my literature report. This interactive book lets you flip through
-      the sections as if reading a real journal. Click the right arrow below to begin your journey.</p>
+      <h1>Independent Writing</h1>
+      <p>Independent writing gives children the opportunity to practice their writing in their self-led play and learning.</p>
+	  <p>Writing is an important life skill; it is an essential form of communication, a way of connecting with others, a means of expression and a way of developing thinking, learning and self-understanding. Some children discover a love of writing early on and are very motivated to write, while others find it challenging and arduous. As parents, we want to support and encourage our children at whatever stage they’re at on their writing journey and whatever their feelings are towards writing. One of the ways that we can do this is by fostering confidence and independence in writing. When children feel confident about their writing ability, they are more likely to feel motivated to write and to find joy in writing. </p>
     </div>
     <div class="page" id="page2">
-      <h1>Introduction</h1>
-      <p>Literature is a mirror reflecting the soul of humanity. Through words, we preserve emotion,
-      thought, and truth across generations.</p>
+      <h1>Developing Independence in Writing</h1>
+      <p>Writing is an important life skill that, as parents, we want to support our children with. In this blog, we explore ways in which parents can encourage their children to become confident, independent writers.</p>
     </div>
     <div class="page" id="page3">
-      <h1>Body</h1>
-      <p>From ancient poems to modern novels, literature continues to shape societies. Each story is
-      a voice echoing through time, connecting hearts and ideas.</p>
+      <h1>What is independent writing and why is it important?</h1>
+      <p>Independent writing is where children write on their own. It is self-led and provides an opportunity for children to express themselves and practise skills that they have learnt. Independent writing can come in many forms. It might emerge through a game, such as writing a menu when playing cafes, or it might take shape through songwriting, story writing or writing a letter to a friend. </p>
     </div>
     <div class="page" id="page4">
-      <h1>Conclusion</h1>
-      <p>The written word endures as a vessel of imagination and memory — proof that art and reason
-      can coexist in beauty. Thank you for reading this report.</p>
+  <p>Independent writing is important for many reasons. It can:</p>
+  <ul>
+    <li>provide your child with a means of self-expression</li>
+    <li>contribute to play and exploration</li>
+    <li>help to develop feelings of confidence, pride and fulfilment</li>
+    <li>act as a creative outlet</li>
+    <li>create opportunities for communication and connection with others</li>
+    <li>support learning and development</li>
+    <li>enable critical thinking and reflection</li>
+  </ul>
+</div>
+	<div class="page" id="page5">
+      <p>As well as this, the ability to write independently is an essential skill that your child will utilise throughout their life. </p>
+	  <p>Although your child will have many opportunities to write independently at school, you can also support and encourage them at home in a variety of ways. Modelling independent writing is a great starting point. Show your child how you use writing in your daily life. Do you use writing when you create shopping lists, text your friends and record events on your calendar? Show your child this and talk to them about how writing is used in many ways and for different things.  </p>
     </div>
-    <div class="page" id="page5">
-      <h1>References</h1>
-      <p>1. Shakespeare, W. (1603). *Hamlet.*<br>
-      2. Homer. *The Odyssey.*<br>
-      3. Austen, J. (1813). *Pride and Prejudice.*<br>
-      4. Orwell, G. (1949). *1984.*<br><br>
-      These timeless works continue to inspire and shape the art of storytelling.</p>
+	<div class="page" id="page6">
+      <p>Another great way of encouraging confidence and independence in writing in your child is to provide them with plenty of opportunities to write and to praise them with warm and meaningful praise. For example, you could set up a card-making station so that your child can make and write thank-you cards after their birthday. If your child is reluctant, encourage but don’t force them. You could offer to share the task and sit with them while they get started. </p>
     </div>
-  </div>
+	 <div class="page" id="page7">
+	<h1>Developing Independent Writing In Younger Children</h1>
+  <p>Before your child starts learning to write words and sentences, you can encourage them to explore writing through fine motor skills activities and mark-making. </p>
+  <p>Mark making has many benefits:</p>
+  <ul>
+    <li>It can be a form of play and exploration.</li>
+    <li>It can help children to develop fine motor skills.</li>
+    <li>It is often self-led and therefore can build confidence and independence.</li>
+  </ul>
+</div>
+<div class="page" id="page8">
+  <ul>
+    <li>It can enable learning and critical thinking.</li>
+    <li>It can provide children with the opportunity to express themselves and give meaning to their marks.</li>
+  </ul>
+  <p>There are many ways in which you can encourage mark-making at home. Why not get outdoors and use chalks on your patio? Or, pop some art materials on your table and give your child the freedom to explore making marks in different ways and with different colours and materials. </p>
+  <p>
+  Provide your child with an opportunity to develop their fine motor skills with these 
+  <a href="https://www.twinkl.com.ph/resource/under-the-sea-patterning-handwriting-fine-motor-practice-ages-5-7-t-par-1654524566" target="https://www.twinkl.com.ph/resource/under-the-sea-patterning-handwriting-fine-motor-practice-ages-5-7-t-par-1654524566">
+    "Under the Sea Worksheets"
+  </a> 
+  to help them develop their skills as they trace different patterns. They can practise holding and using a writing tool correctly while producing colourful, patterned pictures.
+</p>
+	</div>
+	<div class="page" id="page9">
+      <h1>Read, Read, Read</h1>
+      <p>Did you know that reading and writing are closely connected? Although they use different skills, growth and development in one impacts and strengthens the other. </p>
+	  <p>You can read to your child long before they are ready to start writing. This means that, as parents, we are in the privileged position of being able to start putting building blocks in place to support our child’s writing from the moment they are born. As well as being an enjoyable activity, reading to your child regularly will help to develop their vocabulary, understanding of the world, familiarity with how written texts sound and grasp of the technical aspects of writing, such as sentence structure, rhythm and rhyme. This will give your child a big head start when they start learning to write and it will also mean that they will already have been exposed to how writing can be used in many wonderful ways. </p>
+    </div>
+	<div class="page" id="page10">
+      <p>
+  You can find a wealth of eBooks written for different ages of children over at our 
+  <a href="https://www.twinkl.com.ph/twinkl-originals" target="https://www.twinkl.com.ph/twinkl-originals">
+    Twinkl Originals
+  </a> 
+  hub. From books for preschoolers to longer texts for older readers, there is plenty to explore. For children aged 5 - 7, 
+  <a href="https://www.twinkl.com.ph/resource/t-l-53586-the-making-of-milton-ebook" target="https://www.twinkl.com.ph/resource/t-l-53586-the-making-of-milton-ebook">
+    The Making of Milton
+  </a> 
+  is a great read. You could encourage your child to read some of the text for themself or read it out loud to them.
+</p>
+    </div>
+	<div class="page" id="page11">
+      <h1>Exploring Mark-Making Through Drawing</h1>
+      <p>Drawing is a wonderful creative outlet and a form of expression and communication. It can therefore be a great first step on your child’s writing journey. As well as helping to develop fine motor skills, drawing can help children to start developing an understanding of how the marks they make hold meaning. Realising this can be hugely motivating for children and can prompt them to wish to add more meaning to their marks by writing words. </p>
+	  <p>Drawing can also be a great pre-writing step for older children as it can help to get their creative juices flowing and support them as they develop ideas, plots, characters and story settings. </p>
+    </div>
+	<div class="page" id="page12">
+      <p>
+  You can help to spark ideas for drawing with one of our drawing games, such as this 
+  <a href="https://www.twinkl.com.ph/resource/drawing-challenge-adventure-backpack-t-par-1631686579" target="https://www.twinkl.com.ph/resource/drawing-challenge-adventure-backpack-t-par-1631686579">
+    Adventure Backpack Drawing Challenge
+  </a> 
+  and this 
+  <a href="https://www.example.com/draw-it-game-for-kids" target="https://www.twinkl.com.ph/resource/draw-it-game-for-kids-t-par-1637677863">
+    Draw It Game for Kids
+  </a>.
+</p>
+    </div>
+	<div class="page" id="page13">
+      <h1>Fostering Confidence with Letter Formation</h1>
+      <p>As your child grows and develops, they will start to learn how to use letters to build words and sentences. This is an exciting but often challenging step on your child’s writing journey. Letter-writing confidence is crucial when it comes to developing overall confidence in writing. If your child finds letter formation difficult or they have not fully grasped how to form letters, this is likely to hold them back as they start to write longer sentences and texts or to impact their desire to write independently. </p>
+	  <p>You can support your child at home with letter formation by playing letter formation games and finding fun opportunities to write letters, such as writing letters onto the steamed-up mirror in the bathroom or writing letters into the sauce left over on your dinner plate. </p>
+    </div>
+	<div class="page" id="page14">
+      <p>
+  If you’re looking for an activity booklet that has a range of fun and motivating handwriting activities all in one place, then you’ll love this 
+  <a href="https://www.example.com/fantasy-handwriting-booklet" target="_blank">
+    Fantasy Handwriting Booklet
+  </a> 
+  and this 
+  <a href="https://www.example.com/dinosaur-themed-handwriting-booklet" target="_blank">
+    Dinosaur-Themed Handwriting Booklet.
+  </a> With engaging activities that support fine motor skills, letter formation and letter-writing confidence, these booklets are sure to be a big hit with your child.
+</p>
+
+    </div>
+
+	
 
   <div class="controls">
     <button class="btn" id="prevBtn">&#8592; Previous</button>
@@ -284,13 +431,11 @@
       }
     });
 
-    // 🧭 Keyboard navigation support
     document.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight') nextBtn.click();
       else if (event.key === 'ArrowLeft') prevBtn.click();
     });
 
-    // ✨ Floating dust effect
     for (let i = 0; i < 40; i++) {
       const particle = document.createElement('div');
       particle.classList.add('particle');
